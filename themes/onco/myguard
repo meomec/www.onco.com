@@ -1,0 +1,2 @@
+drush --root=/Users/meomec/Sites/www.onco.com cr
+guard -i

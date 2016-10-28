@@ -1,0 +1,44 @@
+
+
+.home-logo {
+	display: block;
+	position: fixed;
+	z-index: 3;
+	top: 50vh;
+	left: 50vw;
+	width: 80vw;
+	@include transform(translateX(-50%) translateY(-50%));
+	@include breakpoint($mobile) {
+		top: 0;
+		left: 1rem;
+		width: 14.5rem;
+		@include transform(translateX(0) translateY(0));
+	}
+	opacity: 1;
+    height: auto;
+	@include transition (left $transition-time $ease);
+	&.slide {
+		left: $leftbar-width + 2rem;
+	}
+	&.off {
+	    opacity: 0; 
+	    height: 0;
+	    overflow: hidden;
+	}
+}
+
+.home-picture {
+    width: 100vw;
+    height: 100vh;
+    background-position: center top;
+    @include background-size(cover);
+    @include transition (background $transition-time $ease);
+    &.slide {
+        background-position: $main-left-padding top !important;
+    }
+    @include overlay($lightgreen);
+}
+
+.home {
+		
+}

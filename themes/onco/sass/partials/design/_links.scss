@@ -1,0 +1,24 @@
+.usefull-links.chapter {
+	.links-wrapper {
+		@include margin-left();
+		.views-element-container {
+			.links {
+				.item-list-link {
+					&:after {
+						@include filet($black);
+					}
+					h3 {
+						@extend .title3;
+						color: $black;
+						
+					}
+					ul.list-link {
+						li.row-link {
+							line-height: 1.5;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+name: Onco
+type: theme
+description: Drupal 8 Theme
+version: 1.1
+core: 8.x
+engine: twig
+screenshot: img/screenshot.png
+
+libraries:
+  - onco/onco.corescripts
+
+# Remove a CSS file:
+stylesheets-remove:
+  - normalize.css
+  - system.theme.css
+
+regions:
+  content: 'Content'
+  left_panel: 'Panneau gauche'
+  right_panel: 'Panneau droit'
+  footer: 'Footer'

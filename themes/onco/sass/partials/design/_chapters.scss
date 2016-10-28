@@ -1,0 +1,54 @@
+.chapter-wrapper {
+	@include clearfix;
+	.chapter {
+		@include clearfix;
+		margin-bottom: 3rem;
+		position: relative;
+		.chapter-image {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			@include breakpoint($mobile) {
+				@include overlay($lightgreen);
+				height: 20rem;
+				overflow: hidden;
+				margin-left: 0;
+				@include transition (margin $transition-time $ease);
+				&.slide {
+					margin-left: $main-left-padding;
+					width: auto;
+			    }				
+			}
+
+		    
+		    .chapter-image-wrapper {
+		    	height: 200%;
+		    	overflow: hidden;
+		    	@include breakpoint($mobile) {
+		    		@include transform( translateY(-50%) );	
+		    	}
+		    
+		    }
+		}
+		.chapter-title {
+			margin: 2rem;
+			@include breakpoint($mobile) {
+				margin: 0;
+				position: absolute;
+				z-index: 2;
+				top: 16rem;				
+				left: 2rem;	
+			}
+			@include breakpoint($tab + 1) {
+				position: absolute;
+				z-index: 2;
+				top: 16rem;				
+				left: $main-left-padding + 1rem;	
+			}
+		}
+		.chapter-content {
+			@include margin-left();
+    		width: auto;
+		}
+	}		
+}

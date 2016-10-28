@@ -1,0 +1,264 @@
+/**
+ * @file
+ * Mixins.
+ */
+
+
+@mixin bodyText() {
+  p {
+    margin: 0 0 1rem 0;
+  }
+  ul {
+    @include unordered($lightgreen, $disc);
+    ul {
+      @include unordered($lightgreen, $circle);
+      margin-left: 1rem;
+    }
+  }
+  ol {
+    @include ordered(); 
+    ul {
+      @include unordered($lightgreen, $circle);
+    }
+  }
+  hr {
+    border: 0;
+    margin: 1.5rem 0;
+    @include borderBottom();
+  }
+}
+
+@mixin margin-left() {
+  $margin: 2rem;
+  padding-left: $margin;
+  padding-right: $margin;
+  width: calc(100vw - 4rem); 
+  @include breakpoint($tab + 1) {
+    width: calc(100vw - 30rem);    
+    margin-top: 3rem;
+    margin-left: $main-left-padding;     
+  }  
+}
+
+@mixin filet($color: $black) {
+  content: '—';
+  color: $color;
+  display: block;
+  padding: 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 400;  
+}
+
+@mixin borderBottom() {
+  border-bottom: 0.25rem solid $lightgreen;
+}
+
+
+@mixin mobile-margins() {
+}
+
+@mixin overlay($color: $lightgreen) {
+  position: relative;
+    &:after {
+      display: block;
+      content: ' ';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color;
+      @include opacity(0.6);
+    }  
+}
+
+@mixin standard-paragraph() {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin border($color: $red) {
+  border: 1px solid $color;
+}
+
+@mixin bleed($padding: $grid-padding, $sides: left right) {
+  @if $sides == 'all' {
+    margin: - $padding;
+    padding: $padding;
+  } @else {
+    @each $side in $sides {
+      margin-#{$side}: - $padding;
+      padding-#{$side}: $padding;
+    }
+  }
+}
+
+@mixin box {
+    border: white 0em solid;
+    -webkit-border-radius: 0.15em 0.15em;
+    -moz-border-radius: 0.15em / 0.15em;
+    border-radius: 0.15em / 0.15em;
+    -webkit-box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
+    -moz-box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
+    box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+@mixin navigation-list {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+    > li{
+        display:block;
+        float:left;
+        &:last-child{
+            margin-right:0px;
+        }
+    }
+}
+
+@mixin no-bullet {
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+@mixin hide-text{
+    overflow:hidden;
+    text-indent:-9000px;
+    display:block;
+}
+
+
+@mixin letterpress($opacity){
+    text-shadow:white($opacity) 0 1px 0;
+}
+
+@mixin box-emboss($opacity, $opacity2){
+    box-shadow:white($opacity) 0 1px 0, inset black($opacity2) 0 1px 0;
+}
+
+@mixin inset-shadow {
+    box-shadow:inset 0px 0px 85px rgba(0,0,0,.5);
+    -webkit-box-shadow:inset 0px 0px 85px rgba(0,0,0,.5);
+    -moz-box-shadow:inset 0px 0px 85px rgba(0,0,0,.5);
+}
+
+@mixin gradient {
+    background: #fff;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe',endColorstr='#f0f0f0');
+    background: -webkit-gradient(linear,left top,left bottom,from(#FEFEFE),to(#F0F0F0));
+    background: -moz-linear-gradient(top,#FEFEFE,#F0F0F0);
+}
+
+@mixin background-pattern {
+    background: #662591 url(../images/dark-pattern.png) repeat;
+}
+
+
+@mixin reset {
+    margin: 0;
+    padding: 0;
+}
+
+
+// List styles
+// -------------------------------------------------------
+
+// Mixins for list style types
+@mixin unordered($color: $green, $bullet: $disc) {
+     list-style-position: inside;
+     list-style-type: none;
+     margin-bottom: 0.5rem;
+     li {
+      margin: 0.5rem 0.75rem 0.5rem 0;
+      &:before {
+        content: $bullet;
+        font: 0.75rem $awesome;
+        color: $color;
+        margin-right: 0.75rem;
+      }
+    }
+}
+
+@mixin unordered-green() {
+     list-style-position: inside;
+     list-style-type: none;
+     margin-bottom: 0.5rem;
+     li {
+      margin: 0.5rem 0.75rem 0.5rem 0;
+      color: $green;
+      &:before {
+        content: '\f068';
+        font: 0.75rem $awesome;
+        margin-right: 0.75rem;
+      }
+    }
+}
+
+@mixin unordered-inside {
+     list-style-position: inside;
+     list-style-type: disc;
+}
+
+@mixin ordered($color: $green) {
+    list-style-type: none;
+    margin-left: 2rem;
+    > li {
+      counter-increment: counter;
+      margin: 0.5rem 0.75rem 0.5rem 0;
+      &:before {
+        content: counter(counter) '. ';
+        display: block;
+        position: relative;
+        max-width: 0px;
+        max-height: 0px;
+        left: -2rem;
+        top: .05em;
+        color: $color;
+        font-weight: bold;        
+      }
+    }
+}
+
+@mixin ordered-inside {
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+
+@mixin nobullet {
+    list-style-type: none;
+}
+
+// Html5 inputs
+// -------------------------------------------------------
+
+/*From seven theme.*/
+@mixin input() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
+  padding: 2px;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-top-color: #999;
+  background: #fff;
+  color: #333;
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+/*From seven theme.*/
+@mixin input-focus() {
+  color: #000;
+  border-color: rgba(0, 116, 189, 0.8);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(220, 220, 220, 0.4);
+  outline-color: rgba(0, 116, 189, 0.5);
+}

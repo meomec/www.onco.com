@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ *
+ * @ingroup themeable
+ */
+#}
+  <div class="rightbar close">
+    <div class="address-wrapper centre">{{ centre }}</div>
+    <div class="address-wrapper belharra off">{{ belharra }}</div>
+    <div class="rightbar-btn-wrapper">
+    	<div class="rightbar-btn close" data-label-open="Adresse" data-label-close="Fermer">Adresse</div>
+	</div>
+  </div>

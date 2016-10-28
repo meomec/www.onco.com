@@ -1,0 +1,10 @@
+footer {
+	position: absolute;
+	left: 0;
+	bottom: -3.6rem;
+	z-index: 3;
+	.footer {
+        @include margin-left();
+		font-size: 80%;
+	}
+}

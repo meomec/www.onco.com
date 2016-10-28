@@ -1,0 +1,291 @@
+/**
+ * @file
+ * Layout elements.
+ */
+
+
+html, body {
+    background-color: $white;
+}
+
+
+body {
+    position: relative;
+}
+
+// Mobile pannel
+
+.slicknav_menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 11;
+    transition: transform 300ms linear;
+    &.up {
+        transform: translateY(-100%);
+    }
+    &.down {
+        transform: translateY(0%);
+    }       
+}
+
+
+//  Sidebar
+
+.leftbar {
+    @include border;
+    display: block;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    //overflow: scroll;
+    @include breakpoint($mobile) {
+        width: $leftbar-width;
+    }
+    background-color: $white;
+    padding: 0;
+    @include transition (left $transition-time $ease);
+    &.open {
+        left: 0;
+    }
+    &.close {
+        left: -100%;
+        @include breakpoint($mobile) {
+            left: $leftbar-width * -1;
+        }
+    }
+    .leftbar-btn-wrapper {
+        position: absolute;
+        z-index: 2;
+        height: 3rem;
+        bottom: calc(100vh - 4rem);
+        right: 0;
+        @include breakpoint($mobile) {
+            bottom: 0;
+            right: 0;            
+        }
+        .leftbar-btn {
+            position: absolute;
+            z-index: inherit;
+            bottom: 1rem;
+            right: 0;
+            cursor: pointer;
+            font-size: 2rem;
+            font-weight: $bold;
+            padding-left: 2rem;
+            @include translateX(100%);
+            @include transition (all $transition-time $ease);
+            &:before {
+                font-family: $awesome;
+                margin-right: 0.5rem;
+            }
+            &.open {
+                @include translateX(-1rem);       
+                &:before {
+                    content: '\f00d'; 
+                }
+            }
+            &.close {
+                @include translateX(100%);
+                &:before {
+                    content: '\f0c9';
+                }
+            }
+        }           
+    }    
+}
+
+.rightbar {
+    //display: none;
+    //@include breakpoint($mobile) {
+        display: block;
+        position: fixed;
+        z-index: 4;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        @include breakpoint($mobile) {
+            width: $rightbar-width;
+        }
+        background-color: $white;
+        padding: 0;
+        @include transition (right $transition-time $ease);
+        @include box-shadow(rgba($black, 0.2) 0 0 0.4rem);
+        &.open {
+            right: 0;
+        }
+        &.close {
+            right: -100vw;
+            @include breakpoint($mobile) {
+                right: ($rightbar-width + 0.4) * -1;
+            }            
+            
+        }    
+        .rightbar-btn-wrapper {
+            position: absolute;
+            z-index: 2;
+            //width: $leftbar-btn-width;
+            height: 3rem;
+            bottom: 0;
+            //right: 0;
+            @include breakpoint($mobile) {
+                right: 1rem;
+            }
+            //background-color: $white;
+            .rightbar-btn {
+                position: absolute;
+                z-index: inherit;
+                bottom: 1rem;
+                left: 0;
+                @include breakpoint($mobile) {
+                    left: $rightbar-width * -1;
+                }
+                cursor: pointer;
+                font-size: 2rem;
+                font-weight: $bold;
+                padding-left: 2rem;
+                @include translateX(-100%);
+                @include transition (all $transition-time $ease);
+                &:before {
+                    font-family: $awesome;
+                    margin-right: 0.5rem;
+                }
+                &.open {
+                    @include translateX(0%);       
+                    &:before {
+                        content: '\f00d'; 
+                    }
+                }
+                &.close {
+                    @include translateX(-100%);
+                    &:before {
+                        //content: '\f0c9';
+                    }
+                }
+            }           
+        }
+        .address-wrapper {
+            padding: 2rem;
+            color: $green;
+            a {
+                color: inherit;
+            }
+            display: none;
+            &.on {
+                display: block;
+            }
+            
+            &.centre {
+                display: block;
+                color: $green;
+            }
+            &.belharra {
+                display: block;
+                color: $blue;
+            }
+            &.off {
+                display: none;
+            }
+        }
+    //}
+}
+
+// Main Content
+
+.main-content {
+    min-height: 100%;
+    main.content {
+        margin-bottom: 4.7rem;
+    }
+    &:before {
+        display: block;
+        content: ' ';
+        position: fixed;
+        z-index: 3;
+        bottom: 0;
+        width: 100%;
+        height: 4.5rem;
+        background-color: $white;
+
+    }
+    &.home:before {
+        display: none;
+    }
+}
+
+.content {
+    //padding-bottom: 80px;
+}
+
+.footer {
+}
+
+
+#overlay {
+    display: block;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: $white;
+    @include transition (left $transition-time $ease);
+    &.on {
+        display: block;
+        left: 0;
+    }
+    &.off {
+        display: none;
+    }
+    .overlay-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        text-indent: -10000px;
+        line-height: 0;
+        &:after {
+            text-indent: initial;
+            display: block;
+            font: 2rem $awesome;
+            content: $back;
+            color: $green;
+        }
+    }
+    .overlay-content-wrapper {
+        @include margin-left();
+        .overlay-title {
+            @extend .title1;
+            margin-top: 20vh;
+        }
+        .overlay-body {
+            @include standard-paragraph;
+            height: 60vh;
+            overflow: scroll;
+            @include borderBottom;
+            padding-top: 1rem;
+            @include bodyText();
+        }
+        .overlay-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20vh;
+            height: 20vh;
+            @include breakpoint($tab + 1) {
+                top: 20vh;
+                width: $main-left-padding;               
+            }
+            > img {
+                width: 95%;
+                height: auto;
+            }             
+
+        }
+    }
+}

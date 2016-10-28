@@ -1,0 +1,34 @@
+.title1 {
+    font: 2.5rem $font;
+    font-weight: $bold;
+    color: $green;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.title2 {
+    font: 2rem $font;
+    color: $green;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.title2-dash {
+    font: 2rem $font;
+    color: $green;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+    &:after {
+        display: block;
+        content: '—';
+        margin-top: 0.5rem;
+    }
+}
+
+.title3 {
+    font: 1.2rem $font;
+    font-weight: bold;
+    color: $green;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}

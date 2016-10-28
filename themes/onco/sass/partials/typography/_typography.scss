@@ -1,0 +1,79 @@
+/**
+ * @file
+ * Typography
+ */
+
+html {
+    font-family: $font;
+    font-weight: $normal;
+    color: $black;
+    font-size: 14px;
+    @include breakpoint($mobile) {
+        font-size: 16px;
+    }
+    @include breakpoint($tab) {
+        font-size: 18px;
+    }
+    @include breakpoint($desk) {
+        font-size: 18px;
+    }
+    @include breakpoint($big) {
+        font-size: 20px;
+    }
+    @include breakpoint($large) {
+        font-size: 22px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font;
+    font-weight: $bold;
+    color: $black;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h5 {
+
+}
+
+p.large {
+
+}
+
+strong, b {
+    font-weight: $bold;
+}
+
+em, i, q {
+    font-style: italic;
+}
+
+hr {
+    background: none;
+    height: 1px;
+    border: 1px solid $clouds;
+}
+
+ul.list-green {
+    @include unordered-green();
+}

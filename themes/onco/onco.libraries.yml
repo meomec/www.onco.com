@@ -1,0 +1,15 @@
+onco.corescripts:
+  version: 1.0
+  css:
+    theme:
+      #js/jquery.slickNav/dist/slicknav.min.css: {}  
+      css/style.css: {}
+  js:
+    #js/jquery.slickNav/dist/jquery.slickNav.min.js: {}
+    js/jquery.scrollTo/jquery.scrollTo.min.js: {}
+    js/jquery.easing/jquery.easing.js: {}
+    js/script.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/modernizr

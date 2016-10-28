@@ -1,0 +1,13 @@
+
+  <div class="secretariat">
+    <h3 class="scretariat-title">{{ label }}</h3>
+    {% if multiple %}
+      <div class="scretariat-items">
+    {% endif %}
+    {% for item in items %}
+      <div class="scretariat-item">{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>

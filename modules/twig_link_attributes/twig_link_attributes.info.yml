@@ -1,0 +1,11 @@
+name: Twig Link Attributes
+type: module
+description: Provides a filter to set link item.url attributes in twig.
+package: custom
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2016-09-30
+version: '8.x-1.x-dev'
+core: '8.x'
+project: 'twig_link_attributes'
+datestamp: 1475225040

@@ -1,0 +1,39 @@
+/**
+ * @file
+ * Style Imports.
+ */
+
+////////////////////////
+// Base Import
+////////////////////////
+@import 'partials/global/base';
+
+////////////////////////
+// Import Layout
+////////////////////////
+@import 'partials/layout/layout';
+
+////////////////////////
+// Import Design
+////////////////////////
+@import 'partials/design/design',
+	'partials/design/home',
+	'partials/design/chapters',
+	'partials/design/paragraphs',
+	'partials/design/doctors',
+	'partials/design/links',
+	'partials/design/contact',
+	'partials/design/footer';
+
+////////////////////////
+// Navigation
+////////////////////////
+@import 'partials/navigation/navigation',
+	'partials/slicknav/core',
+	'partials/slicknav/theme';
+
+////////////////////////
+// Import Typography
+////////////////////////
+@import 'partials/typography/fonts';
+@import 'partials/typography/typography';

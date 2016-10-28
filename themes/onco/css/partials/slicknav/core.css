@@ -1,0 +1,113 @@
+/* line 1, ../../../sass/partials/slicknav/core.scss */
+.slicknav_btn {
+  position: relative;
+  display: block;
+  vertical-align: middle;
+  float: right;
+  padding: 0.438em 0.625em 0.438em 0.625em;
+  line-height: 1.125em;
+  cursor: pointer;
+}
+/* line 9, ../../../sass/partials/slicknav/core.scss */
+.slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+  margin-top: 0.188em;
+}
+
+/* line 13, ../../../sass/partials/slicknav/core.scss */
+.slicknav_menu {
+  *zoom: 1;
+}
+/* line 15, ../../../sass/partials/slicknav/core.scss */
+.slicknav_menu .slicknav_menutxt {
+  display: block;
+  line-height: 1.188em;
+  float: left;
+}
+/* line 20, ../../../sass/partials/slicknav/core.scss */
+.slicknav_menu .slicknav_icon {
+  float: left;
+  width: 1.125em;
+  height: 0.875em;
+  margin: 0.188em 0 0 0.438em;
+}
+/* line 25, ../../../sass/partials/slicknav/core.scss */
+.slicknav_menu .slicknav_icon:before {
+  background: transparent;
+  width: 1.125em;
+  height: 0.875em;
+  display: block;
+  content: "";
+  position: absolute;
+}
+/* line 34, ../../../sass/partials/slicknav/core.scss */
+.slicknav_menu .slicknav_no-text {
+  margin: 0;
+}
+/* line 37, ../../../sass/partials/slicknav/core.scss */
+.slicknav_menu .slicknav_icon-bar {
+  display: block;
+  width: 1.125em;
+  height: 0.125em;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+/* line 48, ../../../sass/partials/slicknav/core.scss */
+.slicknav_menu:before {
+  content: " ";
+  display: table;
+}
+/* line 52, ../../../sass/partials/slicknav/core.scss */
+.slicknav_menu:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+/* line 58, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav {
+  clear: both;
+}
+/* line 60, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav ul {
+  display: block;
+}
+/* line 63, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav li {
+  display: block;
+}
+/* line 66, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav .slicknav_arrow {
+  font-size: 0.8em;
+  margin: 0 0 0 0.4em;
+}
+/* line 70, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav .slicknav_item {
+  cursor: pointer;
+}
+/* line 72, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav .slicknav_item a {
+  display: inline;
+}
+/* line 76, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav .slicknav_row {
+  display: block;
+}
+/* line 79, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav a {
+  display: block;
+}
+/* line 82, ../../../sass/partials/slicknav/core.scss */
+.slicknav_nav .slicknav_parent-link a {
+  display: inline;
+}
+
+/* line 86, ../../../sass/partials/slicknav/core.scss */
+.slicknav_brand {
+  float: left;
+}
+
+/*# sourceMappingURL=core.css.map */

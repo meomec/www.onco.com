@@ -1,0 +1,231 @@
+.staff-wrapper {
+	@include margin-left();
+}
+
+
+.doctor {
+	//@include border;
+	margin-top: 1rem;
+	padding-bottom: 3rem;
+	margin-bottom: 3rem;
+	@include borderBottom;
+	.doctor-body {
+		display: none;
+	}
+	.doctor-header {
+		.doctor-image {
+			margin: 0 auto 1rem auto;
+			width: 100%;
+			height: auto;
+			> img {
+				width: inherit;	
+				height: inherit;
+			}
+			@include breakpoint($mobile) {
+				float: right;
+				width: 200px;
+				height: 200px;
+				@include overlay;
+				cursor: pointer;
+				> img {
+					width: 200px;
+					height: 200px;
+					@include filter(grayscale(100%) brightness(110%) contrast(110%));
+				}				
+			}
+
+		}
+		.doctor-name {
+			@extend .title1;
+			display: inline-block;
+			&:after {
+				@include filet();
+			}
+		}
+		.doctor-more {
+            position: relative;
+            display: inline-block;
+            text-indent: -10000px;
+            line-height: 2.3;
+    		margin-left: 1rem;
+    		cursor: pointer;
+            &:after {
+                text-indent: initial;
+                position: absolute;
+                top: -2rem;
+                left: 0;
+                display: block;
+                font: 1.5rem $awesome;
+                content: $plus;
+                color: $green;                        
+            }
+		}
+		.doctor-subtitle {
+			@extend .title3;
+			margin-bottom: 0;
+		}
+		.doctor-email {
+			@extend .title3;
+			margin-bottom: 0;
+		}
+		.doctor-experiences {
+			width: 100%;
+			@include breakpoint($mobile) {
+				width: calc(100% - 210px);	
+			}
+			&:before {
+				@include filet;
+			}
+			&:after {
+				@include filet;
+			}
+			.experiences-items {
+				.experiences-item {
+					margin-bottom: 1rem;
+					.field-collection-item--name-field-experiences {
+						.content {
+							line-height: initial;
+							.experience-title {
+								display: inline;
+							}
+							.experience-year {
+								display: inline;
+								&:before {
+									content: ' — ';
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	.content {
+		.experiences {
+
+		}
+		.secretariat {
+			margin-bottom: 1rem;
+			.scretariat-title {}
+			.scretariat-items {
+				.scretariat-item {
+					.secretariat-contacts {
+						.content {
+							line-height: 1.5rem;
+							.label {
+								display: inline-block;
+								* {
+									display: inherit;
+								}
+								.location-term {
+									cursor: pointer;
+									&.location-term-1 {
+										color: $green;
+									}
+									&.location-term-2 {
+										color: $blue;
+									}
+									&:before {
+										content: '(';
+									}
+									&:after {
+										content: ')';
+									}									
+								}
+							}
+							.phone {
+								display: inline-block;
+							}
+						}
+					}
+				}
+			}
+		}
+		.secretariat-agenda {
+			margin-top: 1rem;
+		}
+	}
+
+}
+
+.agenda {
+	//@include border;
+	.content {
+		padding: 0;
+		//width: calc(100% - 1rem);
+		//@include breakpoint($mobile) {
+			width: 100%;
+		//}
+		line-height: 1.5rem;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+		.agenda-day {
+			//@include border;
+			//display: inline-block;
+			//float: left;
+			//width: calc(30% - 0.33rem);
+			//@include breakpoint($mobile) {
+				width: 30%;
+			//}
+		}
+		.agenda-location {
+			//@include border;
+			//display: inline-block;
+			//float: left;
+			//width: calc(30% - 0.33rem);
+			//@include breakpoint($mobile) {
+				width: 30%;
+			//}
+			.location-term {
+				//@include border;
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+				.location-icon {
+					//@include border;
+					margin-right: 0.5rem;
+					> img {
+						display: block;	
+					}
+				}
+				.location-name {}
+				.location-description {
+					display: none;
+				}
+				&.location-term-1 {
+					color: $green;
+				}
+				&.location-term-2 {
+					color: $blue;
+				}
+			}
+			
+		}
+		.agenda-hours {
+			//@include border;
+			//display: inline-block;
+			//float: left;
+			//width: calc(30% - 0.33rem);
+			//@include breakpoint($mobile) {
+				width: 30%;
+			//}
+			display: flex;
+			.agenda-hour {
+				margin-left: 0.5rem;
+				min-width: 3rem;
+				text-align: right;
+				/*
+				&:first-child:after {
+					content: '—';
+					margin-left: 0.5rem;
+				}
+				*/
+			}
+		}
+
+	}
+}

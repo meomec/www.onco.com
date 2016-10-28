@@ -1,0 +1,96 @@
+/**
+ * @file
+ * Navigation.
+ */
+
+#block-onco-main-menu {
+    @include border;
+    .menu-level--0 {
+        padding: 1.5rem;
+        font-size: 2.5rem;
+        font-weight: $bold;
+        color: $green;
+        > .main-menu-item {
+            font-size: inherit;
+            font-weight: inherit;
+            color: inherit;
+            &:after {
+                content: '—';
+                display: block;
+                padding: 1rem 0;
+            }
+            > .main-menu-link {
+                color: inherit;
+                font-weight: inherit;
+                &.active {
+                    color: $black;
+                }
+            }
+            > .menu-level--1 {
+                display: block;
+                @include transition (height $transition-time $ease);
+                height: 0;
+                overflow: hidden;
+                padding: 0;
+                font-size: 2rem;
+                font-weight: $normal;
+                line-height: 3rem;
+                color: $green;
+                &.on {}
+                > .main-menu-item {
+                    color: inherit;
+                    > .main-menu-link {
+                        color: inherit;
+                        font-weight: inherit;
+                        &.active {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+    @include breakpoint($mobile) {
+        .menu-level--0 {
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: $bold;
+            color: $green;
+            > .main-menu-item {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+                &:after {
+                    content: '—';
+                    display: block;
+                    padding: 0.5rem 0;
+                }
+                > .main-menu-link {
+                    color: inherit;
+                    font-weight: inherit;
+                    &.is-active {}
+                }
+                > .menu-level--1 {
+                    display: block;
+                    @include transition (height $transition-time $ease);
+                    height: 0;
+                    overflow: hidden;
+                    padding: 0;
+                    font-size: 1rem;
+                    font-weight: $normal;
+                    line-height: 1.5rem;
+                    color: $green;
+                    &.on {}
+                    > .main-menu-item {
+                        color: inherit;
+                        > .main-menu-link {
+                            color: inherit;
+                            font-weight: inherit;
+                            &.is-active {}
+                        }
+                    }
+                }
+            }
+        }        
+    }
+}

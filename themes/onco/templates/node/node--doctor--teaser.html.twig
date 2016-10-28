@@ -1,0 +1,33 @@
+<article id="node-{{ node.id }}" class="doctor {{ attributes.class}} clearfix"{{ attributes }} role="article">
+
+	<div class="doctor-header">
+
+		<div class="doctor-image">{{ content.field_image }}</div>
+
+		<h2{{ title_attributes.addClass(['node__title', 'doctor-name']) }}>{{ label }}</h2>
+
+		<span class="doctor-more">voir plus</span>
+
+		<h3 class="doctor-subtitle">{{ content.field_birth }} — {{ content.field_title }}</h3>
+
+		<div class="doctor-email">{{ content.field_email }}</div>
+		
+		<div class="doctor-experiences">
+			{{ content.field_experiences }}
+		</div>
+		
+	</div>
+
+	<div class="content"{{ content_attributes }}>
+		<div class="doctor-secretariat">
+			{{ content.field_phones }}
+			Vous pouvez joindre le secrétariat du {{ label }} aux horaires suivants :
+			{{ content.field_agenda }}
+		</div>
+	</div>
+
+	<div class="doctor-body">
+		{{ content.body }}
+	</div>
+
+</article>

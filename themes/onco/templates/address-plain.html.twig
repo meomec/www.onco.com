@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Default template for the 'plain' address formatter.
+ *
+ * Available variables:
+ *   - given_name: Given name.
+ *   - additional_name: Additional name.
+ *   - family_name: Family name.
+ *   - organization: Organization.
+ *   - address_line1: First address line.
+ *   - address_line2: Second address line.
+ *   - postal_code: Postal code.
+ *   - sorting_code: Sorting code.
+ *   - dependent_locality: The dependent locality.
+ *     - dependent_locality.code: Dependent locality code.
+ *     - dependent_locality.name: Dependent locality name.
+ *   - locality: The locality subdivision.
+ *     - locality.code: Locality code.
+ *     - locality.name: Locality name.
+ *   - administrative_area: The administrative area subdivision.
+ *     - administrative_area.code: Administrative area code.
+ *     - administrative_area.name: Administrative area name.
+ *   - country: The country.
+ *     - country.code: Country code.
+ *     - country.name: Country name.
+ *
+ * if a subdivision (dependent_locality, locality, administrative_area) was
+ * entered, the array will always have a code. If it's a predefined subdivision,
+ * it will also have a name. The code is always prefered.
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="contact-address" translate="no">
+  {% if given_name or family_name %}
+    <div class="address-name">{{ given_name }} {{ family_name }}</div>
+  {% endif %}
+  {% if organization %}
+    <div class="address-organization">{{ organization }}</div>
+  {% endif %}
+  {% if address_line1 %}
+    <div class="address-line1">{{ address_line1 }}</div>
+  {% endif %}
+  {% if address_line2 %}
+    <div class="address-line2">{{ address_line2 }}</div>
+  {% endif %}
+  {% if dependent_locality.code %}
+    <div class="address-locality">{{ dependent_locality.code }}</div>
+  {% endif %}
+  {% if locality.code or postal_code or administrative_area.code %}
+    <div class="address-code">{{ postal_code }} {{ administrative_area.code }} {{ locality.code }}</div>
+  {% endif %}
+  <div class="address-country">{{ country.name }}</div>
+</div>
+
+
+
+
+
+
+
+
+

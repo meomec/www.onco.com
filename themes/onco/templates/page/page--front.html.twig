@@ -1,0 +1,33 @@
+<div id="overlay">
+    <div class="overlay-content-wrapper"></div>
+    <div class="overlay-close">fermer</div>
+</div>
+{{ page.mobile_panel }}
+{{ page.left_panel }}
+{{ page.right_panel }}
+<div class="home-logo"><img src="/themes/onco/img/logo0.0.svg" /></div>
+<div class="home-picture close"></div>
+<div class="main-content">
+    {% if messages %}
+        <div id="messages">
+            <div class="contain">
+                {{ messages }}
+            </div>
+        </div>
+    {% endif %}
+    {% if tabs %}
+        <nav class="tabs" role="navigation">
+            {{ tabs }}
+        </nav>
+    {% endif %}
+    {{ page.help }}
+    {% if action_links %}
+        <ul class="action-links">
+            {{ action_links }}
+        </ul>
+    {% endif %}
+    <main class="content"  role="main">
+        {{ page.content }}
+    </main>
+</div>
+{{ page.footer }}

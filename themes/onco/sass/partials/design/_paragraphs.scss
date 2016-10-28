@@ -1,0 +1,142 @@
+
+
+.paragraphs-menu {
+    display: none;
+    @include breakpoint($mobile) {
+        display: block;
+        list-style-type: none;
+        float: left;
+        width: 100%;
+        margin: 2rem 0;
+        padding: 0;
+        margin-left: 0;
+    }
+    @include breakpoint($desk) {
+        display: block;
+        list-style-type: none;
+        float: left;
+        width: calc(100vw - 30rem);
+        margin: 2rem 0;
+        padding: 0;
+        margin-left: 0;      
+    }
+    .paragraphs-menu-item {
+        float: left;
+        cursor: pointer;
+        color: $lightgreen;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: $bold;
+        &.active {
+            color: $black;
+        }
+        &:after {
+            content: '—';
+            color: $lightgreen;
+            margin: 0 0.5rem;
+        }
+        &:last-child:after {
+            content: '';
+        }
+    }   
+}
+
+.paragraphs-wrapper {
+    display: block;
+    float: left;
+    width: 100%;
+    /*
+    @include breakpoint($mobile) {
+        width: calc(100vw - 15rem);    
+        height: 25rem;
+        margin-left: $main-left-padding;
+    }
+    */
+    @include breakpoint($tab) {
+        width: calc(100vw - 10rem);    
+        height: 25rem;
+        margin-left: 0;
+    }
+    @include breakpoint($desk) {
+        width: calc(100vw - 30rem);    
+        height: 25rem;
+        margin-left: 0;
+    }
+    
+
+	.paragraphs {
+        position: relative;
+        width: inherit;
+        height: inherit;
+        @include borderBottom;
+		.paragraph {
+            @include standard-paragraph;
+            @include breakpoint($mobile) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: calc(100% - 2rem);
+                height: inherit;
+                overflow: scroll;
+                //padding: 0 1rem;
+                @include transition (opacity 0.7s ease-out);
+                &.on {
+                    @include opacity(1);
+                    height: inherit;
+                }
+                &.off {
+                    @include opacity(0);
+                    height: 0;
+                }               
+            }
+		}
+        .paragraph-title {
+            @extend .title2;
+        }
+        .paragraph-body {
+            display: none;
+            &.on {
+                display: block;
+            }
+            ul {
+                @include unordered($green);
+                &.list-green {
+                    @include unordered-green();
+                }
+            }
+            ol {
+                @include ordered($green);   
+            }
+        }
+        .paragraph-teaser {
+            ul {
+                @include unordered($green);
+                &.list-green {
+                    @include unordered-green();
+                }
+            }
+            ol {
+                @include ordered($green);   
+            }
+        }
+        .paragraph-image {
+            display: none;
+        }
+        .paragraph-trigger {
+            position: relative;
+            display: block;
+            text-indent: -10000px;
+            margin-bottom: 2rem;
+            &:after {
+                text-indent: initial;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                font: 2rem $awesome;
+                content: $plus;
+                color: $green;                        
+            }
+        }         
+	}
+}

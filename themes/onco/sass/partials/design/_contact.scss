@@ -1,0 +1,69 @@
+
+.location-term {
+    color: inherit;
+    h1.title1 {
+    	&:after {
+    		@include filet($black);
+    	}
+    }
+    h2.title2 {
+        font-size: 1.5rem;
+        font-weight: $bold;
+        line-height: 2rem;
+        color: inherit;
+        &:after {
+    		@include filet($black);
+    	}
+    }
+    h3.title3 {
+        font-size: 1.25rem;
+        font-weight: $bold;
+        line-height: 1.75rem;
+        color: inherit;
+        &:after {
+    		@include filet($black);
+    	}
+    	&.address {
+    		color: $black;
+    	}
+    	&.phone {
+    		color: $black;
+    	}
+    	&.email {
+    		color: $black;
+    	}
+    }
+    h3.geolocalization {
+        line-height: 1;
+        color: $black;
+        &:after {
+            display: block;
+            content: '\f041';
+            font: 2rem $awesome;
+            color: inherit;
+        }
+    }
+    div.gmap {
+        line-height: 1;
+        color: $black;
+        &:after {
+            display: none;
+            content: '';
+        }
+        > iframe {
+            width: 100%;
+        }
+    }
+    a {
+        color: inherit;
+    }
+   
+}
+  
+
+.contact.chapter {
+	.contact-wrapper {
+		color: $green;
+        @include margin-left();    
+	}
+}

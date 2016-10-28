@@ -1,0 +1,96 @@
+//colors
+$color_0: rgba(255, 255, 255, 0.75);
+$color_btn: $green;
+$color_text: $white;
+$color_shadow: $black;
+$color_bg: $green;
+$color_hover_bg: $lightgreen;
+$color_hover_text: $white;
+
+.slicknav_menu {
+	
+	width: 100%;
+	font-size: 2rem;
+	box-sizing: border-box;
+	background: none;
+	transition: background-image 600ms ease;
+	&.top {
+		background-size: 100px;
+	}	
+	* {
+		box-sizing: border-box;
+	}
+	.slicknav_menutxt {
+		color: $color_text;
+		font-weight: bold;
+		text-shadow: 0 1px 3px $color_shadow;
+	}
+	.slicknav_icon-bar {
+		background-color: $color_text;
+	}
+}
+.slicknav_btn {
+	background: $color_bg;
+	margin: 0;
+	text-decoration: none;
+	text-align: right;
+	padding: 35px;
+	&.slicknav_open {
+		width: 100%;
+		background-size: 100px;	
+	}
+	.slicknav_icon.slicknav_no-text {
+		float: right;
+	}
+}
+.slicknav_nav {
+	color: $color_text;
+	background: $color_bg;
+	margin: 0;
+	padding: 1rem 0;
+	font-size: 1.25rem;
+	list-style: none;
+	overflow: hidden;
+	ul.menu {
+		list-style: none;
+		overflow: hidden;
+		padding: 0;
+		margin: 0 ;
+		li.slicknav_parent, li {
+			&.slicknav_open {}
+			a.slicknav_item, a.main-menu-link  {
+				padding: 1rem 1rem;
+				margin: 0px 0px;
+				text-decoration: none;
+				color: $color_text;
+				&:hover {
+					background: $color_hover_bg;
+					color: $color_hover_text;
+				}				
+				&.slicknav_row {}
+				.slicknav_arrow {}
+				> a.main-menu-link {
+					padding: 0;
+					text-decoration: none;
+					color: $color_text;
+					&:hover {
+						background: $color_hover_bg;
+						color: $color_hover_text;
+					}	
+				}
+			}
+			&.child {
+				font-size: 66%;
+				padding: 0;
+			}
+		}
+	}
+
+	.logo {
+		display: none;
+	}
+
+	.main-menu-children-description {
+		display: none;
+	}		
+}

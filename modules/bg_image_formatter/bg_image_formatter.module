@@ -1,0 +1,88 @@
+<?php
+
+/**
+ *
+ * This is from the bg_image module for D7 and needs to be improved.
+ *
+ * Adds a background image to the page using the
+ * css 'background' property.
+ *
+ * @param $image_path
+ *    The path of the image to use. This can be either
+ *      - A relative path e.g. sites/default/files/image.png
+ *      - A uri: e.g. public://image.png
+ *
+ * @param $css_settings
+ *    An array of css settings to use. Possible values are:
+ *      - bg_image_selector: The css selector to use
+ *      - bg_image_color: The background color
+ *      - bg_image_x: The x offset
+ *      - bg_image_y: The y offset
+ *      - bg_image_attachment: The attachment property (scroll or fixed)
+ *      - bg_image_repeat: The repeat settings
+ *      - bg_image_background_size: The background size property if necessary
+ *    Default settings will be used for any values not provided.
+ *
+ * @param $image_style
+ *   Optionally add an image style to the image before applying it to the
+ *   background
+ *
+ * @return
+ *   Returns TRUE if successful or FALSE otherwise
+ */
+function bg_image_add_background_image($image_path, $css_settings = array(), $image_style = NULL) {
+  // Pull the default css setting if not provided.
+  $selector = isset($css_settings['bg_image_selector']) ? $css_settings['bg_image_selector'] : variable_get('bg_image_selector', '');
+  $bg_color = isset($css_settings['bg_image_color']) ? $css_settings['bg_image_color'] : variable_get('bg_image_color', '#FFFFFF');
+  $bg_x = isset($css_settings['bg_image_x']) ? $css_settings['bg_image_x'] : variable_get('bg_image_x', 'left');
+  $bg_y = isset($css_settings['bg_image_y']) ? $css_settings['bg_image_y'] : variable_get('bg_image_y', 'top');
+  $attachment = isset($css_settings['bg_image_attachment']) ? $css_settings['bg_image_attachment'] : variable_get('bg_image_attachment', 'scroll');
+  $repeat = isset($css_settings['bg_image_repeat']) ? $css_settings['bg_image_repeat'] : variable_get('bg_image_repeat', 'no-repeat');
+  $important = isset($css_settings['bg_image_important']) ? $css_settings['bg_image_important'] : variable_get('bg_image_important', 1);
+  $background_size = isset($css_settings['bg_image_background_size']) ? $css_settings['bg_image_background_size'] : variable_get('bg_image_background_size', '');
+  $background_size_ie8 = isset($css_settings['bg_image_background_size_ie8']) ? $css_settings['bg_image_background_size_ie8'] : variable_get('bg_image_background_size_ie8', 0);
+  $media_query = isset($css_settings['bg_image_media_query']) ? $css_settings['bg_image_media_query'] : variable_get('bg_image_media_query', 'all');
+
+  // If important is true, we turn it into a string for css output
+  if ($important) {
+    $important = '!important';
+  }
+  else {
+    $important = '';
+  }
+
+  // Handle the background size property
+  $bg_size = '';
+  $ie_bg_size = '';
+  if ($background_size) {
+    // CSS3
+    $bg_size = "background-size: $background_size $important;";
+    // Let's cover ourselves for other browsers as well...
+    $bg_size .= "-webkit-background-size: $background_size $important;";
+    $bg_size .= "-moz-background-size: $background_size $important;";
+    $bg_size .= "-o-background-size: $background_size $important;";
+    // IE filters to apply the cover effect
+    if ($background_size == 'cover' && $background_size_ie8)  {
+      $ie_bg_size = 'filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'.' . $image_path . '\', sizingMethod=\'scale\');
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' .$image_path . '\', sizingMethod=\'scale\')";';
+    }
+  }
+
+  // Add the css if we have everything we need.
+  if ($selector && $image_path) {
+    $style = "$selector {";
+    $style .= "background-color: $bg_color $important;";
+    $style .= "background-image: url('$image_path') $important;";
+    $style .= "background-repeat: $repeat $important;";
+    $style .= "background-attachment: $attachment $important;";
+    $style .= "background-position: $bg_x $bg_y $important;";
+    $style .= $bg_size;
+    $style .= $background_size_ie8 ? $ie_bg_size : '';
+    $style .= "}";
+    return $style;
+  }
+  else {
+    return FALSE;
+  }
+}
+
